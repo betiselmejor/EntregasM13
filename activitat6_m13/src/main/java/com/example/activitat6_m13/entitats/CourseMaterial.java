@@ -3,34 +3,40 @@ package com.example.activitat6_m13.entitats;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class CourseMaterial {
 
     @Id
+    @Column(name = "CourseMaterial_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String url;
+
 
     @JsonIgnore
     @ManyToOne(optional = true)
     private Course course;
 
 
-
-    public CourseMaterial(Course course, String url) {
-        this.course = course;
+    public CourseMaterial(long id, String url, Course course) {
+        this.id = id;
         this.url = url;
+        this.course = course;
     }
 
     public CourseMaterial() {
     }
 
-    public CourseMaterial(Course course, long id, String url) {
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
         this.course = course;
-        this.id = id;
-        this.url = url;
     }
 
     public long getId() {
@@ -41,13 +47,8 @@ public class CourseMaterial {
         this.id = id;
     }
 
-    public Course getCourse() {
-        return course;
-    }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
+
     public void removeCourse(){
         course=null;
     }

@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Course {
     @Id
+    @Column(name = "Course_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -19,10 +21,10 @@ public class Course {
     public Course() {
     }
 
-    public Course(long id, List<CourseMaterial> materials, String title) {
+    public Course(long id, String title, List<CourseMaterial> materials) {
         this.id = id;
-        this.materials = materials;
         this.title = title;
+        this.materials = materials;
     }
 
     public Course(long id, String title) {
