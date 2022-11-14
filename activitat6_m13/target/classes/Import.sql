@@ -11,10 +11,12 @@ insert into Course (title) values ('Research and Development');
 
 
 
+
 insert into COURSE_MATERIAL (URL,COURSE_ID) values ('AAAAAAAAA',2);
 insert into COURSE_MATERIAL (URL,COURSE_ID) values ('BBBBBBBBB',2);
 insert into COURSE_MATERIAL (URL,COURSE_ID) values ('CCCCCCCCC',1);
-
+insert into COURSE_MATERIAL (URL,COURSE_ID) values ('DDDDDDDDD',3);
+insert into COURSE_MATERIAL (URL) values ('EEEEEEEEE');
 
 
 

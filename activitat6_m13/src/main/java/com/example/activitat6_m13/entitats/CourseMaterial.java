@@ -14,7 +14,7 @@ public class CourseMaterial {
     private String url;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(optional = true)
     private Course course;
 
 
@@ -47,6 +47,9 @@ public class CourseMaterial {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+    public void removeCourse(){
+        course=null;
     }
 
     public String getUrl() {
