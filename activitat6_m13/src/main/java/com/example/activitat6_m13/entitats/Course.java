@@ -16,6 +16,9 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private List<CourseMaterial> materials;
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students;
+
     public Course() {
     }
 
