@@ -1,6 +1,6 @@
 package com.example.activitat6_m13.entitats;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -16,7 +16,9 @@ public class Course {
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private List<CourseMaterial> materials;
 
+
     @ManyToMany(mappedBy = "courses")
+    @JsonManagedReference
     private List<Student> students;
 
     public Course() {
@@ -55,5 +57,13 @@ public class Course {
 
     public void setMaterials(List<CourseMaterial> materials) {
         this.materials = materials;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }

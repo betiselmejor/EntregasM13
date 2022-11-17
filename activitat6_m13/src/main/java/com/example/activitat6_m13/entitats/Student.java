@@ -1,6 +1,8 @@
 package com.example.activitat6_m13.entitats;
 
 
+import com.fasterxml.jackson.annotation.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "Student_id"),
             inverseJoinColumns = @JoinColumn(name = "Course_id")
     )
+    @JsonBackReference
     private List<Course> courses;
 
     public Student(long id, String lastName, String firstName, LocalDate birthDate, boolean wantsNewsletter, List<Course> courses) {
@@ -87,4 +90,6 @@ public class Student {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
+
+
 }
